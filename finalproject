@@ -21,7 +21,7 @@ for i in man_list:
             price = x[1]
             item.append(price)
     for y in date_list:
-        if i[0] != y[0]:
+        if i[0] == y[0]:
             date = y[1]
             item.append(date)
         item.append(i[3])

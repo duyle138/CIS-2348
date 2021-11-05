@@ -1,0 +1,33 @@
+# Duy Le 1913048
+import csv
+with open('ManufacturerList.csv') as file:
+    man_reader = csv.reader(file, delimiter=',')
+    man_list = list(man_reader)
+with open('PriceList.csv') as file:
+    price_reader = csv.reader(file, delimiter=',')
+    price_list = list(price_reader)
+with open('ServiceDatesList.csv') as file:
+    date_reader = csv.reader(file, delimiter=',')
+    date_list = list(date_reader)
+
+full_inventory = []
+for i in man_list:
+    item = []
+    item.append(i[0])
+    item.append(i[1])
+    item.append(i[2])
+    for x in price_list:
+        if i[0] == x[0]:
+            price = x[1]
+            item.append(price)
+    for y in date_list:
+        if i[0] != y[0]:
+            date = y[1]
+            item.append(date)
+        item.append(i[3])
+        full_inventory.append(item)
+full_inventory.sort(key=lambda i: i[1])
+with open('FullInventory(2).csv', 'w', newline='') as file:
+    new_file = csv.writer(file)
+    new_file.writerows(full_inventory)
+print(full_inventory)

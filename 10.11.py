@@ -1,3 +1,4 @@
+# Duy Le 1913048
 class FoodItem:
 
     def __init__(self, item_name="None", amount_fat=0.0, amount_carbs=0.0, amount_protein=0.0):
